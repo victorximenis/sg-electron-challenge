@@ -1,3 +1,12 @@
 /* styles.css */
+* {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+}
 
 /* Add styles here to customize the appearance of your app */
