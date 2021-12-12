@@ -3,10 +3,38 @@
   width: 100%;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   width: 100%;
+  align-items: center;
+}
+
+main {
+  background-color: rgba(250, 250, 250, 0.966);
+  height: 370px;
+}
+
+.header-text {
+  color: whitesmoke;
+  position: absolute;
+  left: 70px;
+  top: 140px;
+  font-size: x-large;
+  font-weight: 700;
+  max-width: 400px;
+}
+
+.header-text-select {
+  color: whitesmoke;
+  position: absolute;
+  left: 70px;
+  top: 170px;
+  font-size: small;
+  font-style: italic;
+  font-weight: 700;
+  max-width: 200px;
 }
 
 /* Add styles here to customize the appearance of your app */

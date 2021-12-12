@@ -9,5 +9,8 @@
   "author": "Victor Ximenis",
   "devDependencies": {
     "electron": "^16.0.2"
+  },
+  "dependencies": {
+    "bootstrap": "^5.1.3"
   }
 }
