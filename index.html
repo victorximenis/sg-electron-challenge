@@ -3,17 +3,36 @@
   <head>
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="Content-Security-Policy" content="default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;">
     <link href="./styles.css" rel="stylesheet">
     <title>Hello World!</title>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
+    <h1>Verificador de clima:</h1>
 
-    <!-- You can also require other files to run in this process -->
+    <form id="form">
+      <label for="cities">
+        Selecione a cidade:
+        <select
+          name='cities'
+          id="cities"
+          >
+        </select>
+      </label>
+
+      <button
+        id='button-send'
+        type="submit"
+      >
+        Verificar!
+      </button>
+    </form>
+    
+    <br />
+    <br />
+    <div id="main-container">
+    </div>
     <script src="./renderer.js"></script>
+    <script src="./index.js" ></script>
   </body>
 </html>
