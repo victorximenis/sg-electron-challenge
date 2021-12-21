@@ -8,7 +8,6 @@ const myCities = [
   'Ouro Preto',
 ];
 
-/* const fixName = (nameCity) => nameCity.replace(' ', '+'); */
 
 myCities.forEach((item) => {
   const myOptions = document.getElementById('cities');
@@ -20,20 +19,22 @@ myCities.forEach((item) => {
 
 const myForm = document.getElementById('form');
 
+const generateCard = (data, city) => {
+  const { main: { temp } } = data;
+  const body = document.getElementsByTagName('body')[0];
+  const span = document.createElement('span');
+  span.className = 'temperature';
+  span.textContent = `Temperatura em ${city}: ${(temp - 273.15).toFixed(1)}°C`;
+  const currentSpan = document.querySelectorAll('.temperature');
+  if (currentSpan.length) currentSpan[0].remove();
+  body.appendChild(span);
+}
+
 myForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const city = document.getElementById('cities').value;
   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=7bebfe33c36ccb984d8f954f1568b83f`)
     .then((res) => res.json()
-    .then((data) => {
-      const { main: { temp } } = data;
-      const body = document.getElementsByTagName('body')[0];
-      const span = document.createElement('span');
-      span.className = 'temperature';
-      span.textContent = `Temperatura em ${city}: ${(temp - 273.15).toFixed(1)}°C`;
-      const currentSpan = document.querySelectorAll('.temperature');
-      if (currentSpan.length) currentSpan[0].remove();
-      body.appendChild(span);
-    })); 
+    .then((data) => generateCard(data, city))); 
 });
 
