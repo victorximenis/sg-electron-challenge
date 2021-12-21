@@ -3,17 +3,72 @@
   <head>
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="Content-Security-Policy" content="default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;">
     <link href="./styles.css" rel="stylesheet">
-    <title>Hello World!</title>
+    <title>Weather</title>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
-
-    <!-- You can also require other files to run in this process -->
+    <form id="form" class="selectHeader">
+      <h1>Selecione a cidade:</h1>
+      <div class="selectContainer">
+        <i class="uil uil-location-point"></i>
+        <select
+          id="cities"
+          >
+        </select>
+      </div>
+    </form>
+    <div hidden class="wheatherInfo">
+      <div class="tempInfo">
+        <i class="uil uil-cloud-sun"></i>
+        <p class="cloud"></p>
+        <h2 class="temp"></h2>
+      </div>
+      <div class="othersInfo">
+        <div class="itemCard">
+          <div class="itemTitle">
+            <i class="uil uil-cloud-sun"></i>
+            <p>Velocidade Do Vento</p>
+          </div>
+          <p class="wind-speed"></p>
+        </div>
+        <div class="itemCard">
+          <div class="itemTitle">
+            <i class="uil uil-cloud-sun"></i>
+            <p>Umidade</p>
+          </div>
+          <p class="umidade"></p>
+        </div>
+        <div class="itemCard">
+          <div class="itemTitle">
+            <i class="uil uil-cloud-sun"></i>
+            <p>Pressão</p>
+          </div>
+          <p class="pressure"></p>
+        </div>
+        <div class="itemCard">
+          <div class="itemTitle">
+            <i class="uil uil-cloud-sun"></i>
+            <p>Temperatura Máxima</p>
+          </div>
+          <p class="max-temp">7 C</p>
+        </div>
+        <div class="itemCard">
+          <div class="itemTitle">
+            <i class="uil uil-cloud-sun"></i>
+            <p>Temperatura Mínima</p>
+          </div>
+          <p class="min-temp"></p>
+        </div>
+        <div class="itemCard">
+          <div class="itemTitle">
+            <i class="uil uil-cloud-sun"></i>
+            <p>Sensação Térmica</p>
+          </div>
+          <p class="thermal-sensation"></p>
+        </div>
+      </div>
+    </div>
     <script src="./renderer.js"></script>
   </body>
 </html>
